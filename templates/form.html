@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Details</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #0f2027;
+            color: white;
+        }
+
+        .container {
+            width: 350px;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 25px rgba(0,255,213,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #00ffd5;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00c9a7;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Enter Your Details</h2>
+
+    <form method="POST">
+        <input type="number" name="movie" placeholder="Movie Hours" required>
+        <input type="number" name="sleep" placeholder="Sleep Hours" required>
+        <input type="number" name="attendance" placeholder="Attendance %" required>
+        <input type="number" name="activity" placeholder="Physical Activity (1/0)" required>
+
+        <button type="submit">Predict 🚀</button>
+    </form>
+</div>
+
+</body>
+</html>

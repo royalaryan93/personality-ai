@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1f4037, #99f2c8);
+            color: black;
+            text-align: center;
+        }
+
+        .box {
+            margin-top: 150px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        .result {
+            font-size: 30px;
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: black;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>🎯 Your Personality Type</h1>
+
+    <div class="result">
+        {{ result }}
+    </div>
+
+    <a href="/">Go Back</a>
+</div>
+
+</body>
+</html>
