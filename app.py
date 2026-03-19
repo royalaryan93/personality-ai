@@ -6,32 +6,16 @@ import os
 
 app = Flask(__name__)
 
-# ================= DATASET =================
-data = {
-    "Movie_Hours": [1,2,2,3,4,5,6,7,8,9,5,6,7,8,9,10],
-    "Sleep_Hours": [6,7,7,6,6,5,5,4,3,3,8,8,9,9,10,10],
-    "Attendance":  [90,85,88,80,75,70,65,60,55,50,78,72,68,60,50,40],
-    "Physical_Activity": [1,1,1,1,1,0,0,0,0,0,1,1,0,0,0,0],
-    "Category": [
-        "Badhiya aadmi ho","Badhiya aadmi ho","Badhiya aadmi ho","Badhiya aadmi ho",
-        "chutiya ho bsdk","chutiya ho bsdk",
-        "lund ho bsdk bas sote rho madarchod","lund ho bsdk bas sote rho madarchod",
-        "lund ho bsdk bas sote rho madarchod","lund ho bsdk bas sote rho madarchod",
-        "chutiya ho bsdk","chutiya ho bsdk",
-        "lund ho bsdk bas sote rho madarchod","lund ho bsdk bas sote rho madarchod",
-        "lund ho bsdk bas sote rho madarchod","lund ho bsdk bas sote rho madarchod"
-    ]
-}
-
-df = pd.DataFrame(data)
+# ================= LOAD DATASET =================
+df = pd.read_excel("personality_dataset.xlsx")
 
 # ================= MODEL =================
 le = LabelEncoder()
 y = le.fit_transform(df["Category"])
 
-X = df[["Movie_Hours", "Sleep_Hours", "Attendance", "Physical_Activity"]].values
+X = df[["Movie_Hours", "Sleep_Hours", "Attendance", "Physical_Activity"]]
 
-model = DecisionTreeClassifier(max_depth=3)
+model = DecisionTreeClassifier(max_depth=4)
 model.fit(X, y)
 
 # ================= ROUTES =================
@@ -41,7 +25,7 @@ model.fit(X, y)
 def landing():
     return render_template("landing.html")
 
-# 🔥 Form + Prediction
+# 🔥 Prediction
 @app.route("/predict", methods=["GET", "POST"])
 def predict():
     if request.method == "POST":
@@ -50,6 +34,17 @@ def predict():
         attendance = float(request.form["attendance"])
         activity = int(request.form["activity"])
 
+        # 🚨 INPUT VALIDATION (VERY IMPORTANT)
+        if sleep < 3 or sleep > 12:
+            return render_template("result.html", result="AADMI THEEK NHI HO TUM ❌")
+
+        if movie < 0 or movie > 12:
+            return render_template("result.html", result="AADMI THEEK NHI HO TUM  ❌")
+
+        if attendance < 0 or attendance > 100:
+            return render_template("result.html", result="AADMI THEEK NHI HO TUM  ❌")
+
+        # 🔮 Prediction
         pred = model.predict([[movie, sleep, attendance, activity]])
         result = le.inverse_transform(pred)[0]
 
