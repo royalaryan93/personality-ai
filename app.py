@@ -13,13 +13,13 @@ data = {
     "Attendance":  [90,85,88,80,75,70,65,60,55,50,78,72,68,60,50,40],
     "Physical_Activity": [1,1,1,1,1,0,0,0,0,0,1,1,0,0,0,0],
     "Category": [
-        "hoshiyar","hoshiyar","hoshiyar","hoshiyar",
-        "average","average",
-        "needs improvement","needs improvement",
-        "needs improvement","needs improvement",
-        "average","average",
-        "needs improvement","needs improvement",
-        "needs improvement","needs improvement"
+        "Badhiya aadmi ho","Badhiya aadmi ho","Badhiya aadmi ho","Badhiya aadmi ho",
+        "chutiya ho bsdk","chutiya ho bsdk",
+        "lund ho bsdk bas sote rho madarchod","lund ho bsdk bas sote rho madarchod",
+        "lund ho bsdk bas sote rho madarchod","lund ho bsdk bas sote rho madarchod",
+        "chutiya ho bsdk","chutiya ho bsdk",
+        "lund ho bsdk bas sote rho madarchod","lund ho bsdk bas sote rho madarchod",
+        "lund ho bsdk bas sote rho madarchod","lund ho bsdk bas sote rho madarchod"
     ]
 }
 
